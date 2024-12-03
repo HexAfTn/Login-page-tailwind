@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .form-container {
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(58, 123, 213, 0.7), rgba(40, 56, 120, 0.9));
+      overflow: hidden;
+    }
+
+    .background::before, .background::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.1), transparent);
+      animation: spin 10s linear infinite;
+      border-radius: 50%;
+    }
+
+    .background::after {
+      animation-direction: reverse;
+      animation-duration: 15s;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen relative">
+  <div class="background"></div>
+  <div class="form-container relative z-10">
+    <form id="loginForm">
+      <div class="mb-5">
+        <label for="username" class="block text-gray-700 text-sm uppercase font-medium">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" class="w-full p-3 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+      <div class="mb-5">
+        <label for="password" class="block text-gray-700 text-sm uppercase font-medium">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" class="w-full p-3 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+      <button type="submit" class="uppercase font-medium w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+    </form>
+  </div>
+
+</body>
+</html>
